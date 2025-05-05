@@ -7,7 +7,7 @@ class SudokuSolver {
     static MinValue = 1;
     static MaxValue = SudokuSolver.GridSize;
 
-    constructor(puzzle, ctx, solver, z3) {
+    constructor(puzzle, ctx, solver) {
         this._puzzle = puzzle;
         this._ctx = ctx;
         this._solver = solver;
@@ -19,7 +19,7 @@ class SudokuSolver {
         const z3 = await init();
         const ctx = new z3.Context();
         const solver = new ctx.Solver();
-        return new SudokuSolver(puzzle, ctx, solver, z3);
+        return new SudokuSolver(puzzle, ctx, solver);
     }
 
     async solveSudoku() {
